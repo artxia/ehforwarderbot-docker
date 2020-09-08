@@ -28,6 +28,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: artxia/docker-ehforwarderbot
-        tag_with_ref: true
-        add_git_labels: true
-        push: ${{ startsWith(github.ref, 'refs/tags/') }}
+        tags: latest
