@@ -20,4 +20,4 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 WORKDIR .
 ADD entrypoint.sh .
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD /bin/sh /entrypoint.sh
