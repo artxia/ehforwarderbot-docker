@@ -17,6 +17,7 @@ RUN pip3 install pysocks ehforwarderbot efb-telegram-master efb-wechat-slave
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone
 
-ADD entrypoint.sh /entrypoint.sh
+WORKDIR .
+ADD entrypoint.sh .
 
 ENTRYPOINT ["/entrypoint.sh"]
