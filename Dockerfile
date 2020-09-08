@@ -13,7 +13,8 @@ RUN apk --update upgrade \
        ffmpeg libmagic python3 \
        tiff libwebp freetype lcms2 openjpeg py3-olefile openblas \
        py3-numpy py3-pillow py3-cryptography py3-decorator cairo py3-pip
-RUN pip3 install pysocks ehforwarderbot efb-telegram-master efb-wechat-slave
+RUN pip3 install pysocks ehforwarderbot efb-telegram-master efb-wechat-slave efb-qq-slave
+RUN pip install python-telegram-bot[socks]
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone
 
