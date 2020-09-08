@@ -6,7 +6,7 @@
 安装：
 ```
 docker run -d --name ehforwarderbot1 \
- -v /volume2/docker/efb:/data \
+ -v /efb:/data \
  artxia/ehforwarderbot-docker
 ```
 
