@@ -11,7 +11,7 @@ on:
     inputs:
 
 env:
-  IMAGE_NAME: ehforwarderbot-docker
+  IMAGE_NAME: mirai-http-docker
 
 jobs:
   build:
