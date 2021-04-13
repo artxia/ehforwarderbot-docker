@@ -9,7 +9,7 @@ Mirai Console Loader(MCL) + mirai + mirai-api-http 启动后给 efb-qq-slave 对
 docker run -it --name mirai \
  -v ./config/setting.yml:/app/config/net.mamoe.mirai-api-http/setting.yml \
  -p 8080:8080 \
- mirai
+ artxia/mirai-http-docker
 ```
 
 运行后会直接进入 Mirai Console 控制台交互界面，这时候输入 `/login [qq] [password] ANDROID_PAD` 然后打开生成的验证链接登录QQ。登录成功后可以`/shutdown`关闭控制台 <br>
