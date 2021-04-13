@@ -1,24 +1,29 @@
-FROM alpine:latest
-MAINTAINER XIA
+FROM alpine:latest AS loader
 
-ENV LANG C.UTF-8
-ENV TZ 'Asia/Shanghai'
-ENV EFB_DATA_PATH /data/
-ENV EFB_PARAMS ""
-ENV EFB_PROFILE "default"
-ENV HTTPS_PROXY ""
+RUN apk --no-cache upgrade \
+    && apk add --no-cache --update curl unzip \
+    && MCL_VERSION=$(curl -sX GET "https://api.github.com/repos/itxtech/mirai-console-loader/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') \
+    && HTTP_VERSION=$(curl -sX GET "https://api.github.com/repos/project-mirai/mirai-api-http/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') \
+    && curl -so mcl.zip -L \
+     "https://github.com/itxtech/mirai-console-loader/releases/download/${MCL_VERSION}/mcl-${MCL_VERSION#v}.zip" \
+    && unzip -q -o mcl.zip -d /mcl \
+    && curl -so mirai-api-http.mirai.jar -L \
+     "https://github.com/project-mirai/mirai-api-http/releases/download/${HTTP_VERSION}/mirai-api-http-${HTTP_VERSION}.mirai.jar" \
+    && rm -rf /tmp/* /var/lib/apt/lists/* /mcl/*.zip
 
-RUN apk --update upgrade \
-    && apk --update add tzdata ca-certificates \
-       ffmpeg libmagic python3 \
-       tiff libwebp freetype lcms2 openjpeg py3-olefile openblas \
-       py3-numpy py3-pillow py3-cryptography py3-decorator cairo py3-pip
-RUN pip3 install pysocks ehforwarderbot efb-telegram-master efb-wechat-slave efb-qq-slave
-RUN pip install python-telegram-bot[socks]
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone
 
-WORKDIR .
-ADD entrypoint.sh .
+FROM openjdk:11-jre AS production
 
-CMD /bin/sh /entrypoint.sh
+ENV TZ Asia/Shanghai
+
+WORKDIR /app
+
+COPY --from=loader /mcl /app
+COPY --from=loader /mirai-api-http.mirai.jar /app/plugins/
+
+RUN chmod +x mcl \
+    && ./mcl --dry-run
+
+EXPOSE 8080
+
+ENTRYPOINT ["bash","./mcl"]
