@@ -49,6 +49,6 @@ mirai:
 说明：
 - 建议微信和QQ各自建立一个容器，可以命名为 `efbwechat`和`efbqq` 并且启用两套配置文件
 - 微信在启动后会出现二维码，扫码登录即可
-- QQ 适用的是 mirai 机器人框架，我也构建了docker镜像可以直接使用。[教程：](https://github.com/artxia/ehforwarderbot-docker/blob/mirai-http-docker/README.md)
+- QQ使用的是 mirai 机器人框架，我也构建了 docker 镜像，可以直接使用。[教程：](https://github.com/artxia/ehforwarderbot-docker/blob/mirai-http-docker/README.md)
 - 其他配置和使用 [EFB Telegram 主端（ETM）](https://github.com/ehForwarderBot/efb-telegram-master/blob/master/readme_translations/zh_CN.rst)
 
