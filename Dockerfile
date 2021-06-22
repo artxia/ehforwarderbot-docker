@@ -3,7 +3,7 @@ FROM alpine:latest AS loader
 RUN apk --no-cache upgrade \
     && apk add --no-cache --update curl unzip \
     && MCL_VERSION=$(curl -sX GET "https://api.github.com/repos/itxtech/mirai-console-loader/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') \
-    && HTTP_VERSION=$v2.0.2 \
+    && HTTP_VERSION=$(curl -sX GET "https://api.github.com/repos/project-mirai/mirai-api-http/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') \
     && curl -so mcl.zip -L \
      "https://github.com/itxtech/mirai-console-loader/releases/download/${MCL_VERSION}/mcl-${MCL_VERSION#v}.zip" \
     && unzip -q -o mcl.zip -d /mcl \
