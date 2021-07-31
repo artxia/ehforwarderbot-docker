@@ -27,4 +27,4 @@ RUN chmod +x mcl \
 
 EXPOSE 8080
 
-ENTRYPOINT ["bash","./mcl -u"]
+ENTRYPOINT ["bash","./mcl"]
