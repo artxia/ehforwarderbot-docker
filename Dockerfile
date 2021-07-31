@@ -20,6 +20,7 @@ WORKDIR /app
 
 COPY --from=loader /mcl /app
 COPY --from=loader /mirai-api-http.mirai.jar /app/plugins/
+ADD config.json /app
 
 RUN chmod +x mcl \
     && ./mcl --dry-run
