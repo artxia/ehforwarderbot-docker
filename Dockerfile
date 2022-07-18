@@ -19,8 +19,6 @@ RUN apk --update upgrade \
 
 RUN pip3 install --upgrade pip && pip3 install pysocks ehforwarderbot efb-telegram-master \
        https://github.com/ehForwarderBot/efb-wechat-slave/archive/master.zip \
-       https://github.com/tedrolin/python-wechatPc/archive/master.zip \
-       https://github.com/tedrolin/efb-wechat-pc-slave/archive/master.zip \
        https://github.com/milkice233/efb-qq-slave/archive/master.zip \
        https://github.com/milkice233/efb-qq-plugin-mirai/archive/master.zip \
     && pip install python-telegram-bot[socks] \
