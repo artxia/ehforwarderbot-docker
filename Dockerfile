@@ -23,7 +23,8 @@ COPY --from=loader /mirai-api-http.mirai.jar /app/plugins/
 ADD config.json /app
 
 RUN chmod +x mcl \
-    && ./mcl --dry-run
+    && ./mcl --dry-run \
+    && ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 
 EXPOSE 8080
 
