@@ -1,56 +1,52 @@
 {
-  "js_optimization_level": -1,
-  "mirai_repo": "https://gitee.com/peratx/mirai-repo/raw/master",
+  "module_packages": [
+    "mcl:org.itxtech.mcl.module.builtin"
+  ],
+  "mirai_repo": "https://repo.itxtech.org",
   "maven_repo": [
     "https://maven.aliyun.com/repository/public"
   ],
-  "packages": [
-    {
-      "id": "org.bouncycastle:bcprov-jdk15on",
+  "packages": {
+    "net.mamoe:mirai-console": {
+      "channel": "stable",
+      "version": "2.12.0",
+      "type": "libs",
+      "versionLocked": false
+    },
+    "net.mamoe:mirai-console-terminal": {
+      "channel": "stable",
+      "version": "2.12.0",
+      "type": "libs",
+      "versionLocked": false
+    },
+    "net.mamoe:mirai-core-all": {
+      "channel": "stable",
+      "version": "2.12.0",
+      "type": "libs",
+      "versionLocked": false
+    },
+    "org.itxtech:mcl-addon": {
+      "channel": "c2001",
+      "version": "2.0.2",
+      "type": "plugins",
+      "versionLocked": false
+    },
+    "org.bouncycastle:bcprov-jdk15on": {
       "channel": "stable",
       "version": "1.64",
       "type": "libs",
       "versionLocked": false
-    },
-    {
-      "id": "net.mamoe:mirai-console",
-      "channel": "stable",
-      "version": "2.6.7",
-      "type": "libs",
-      "versionLocked": false
-    },
-    {
-      "id": "net.mamoe:mirai-console-terminal",
-      "channel": "beta",
-      "version": "2.6.7",
-      "type": "libs",
-      "versionLocked": false
-    },
-    {
-      "id": "net.mamoe:mirai-core-all",
-      "channel": "beta",
-      "version": "2.6.7",
-      "type": "libs",
-      "versionLocked": false
-    },
-    {
-      "id": "net.mamoe:mirai-api-http",
-      "channel": "stable",
-      "version": "1.11.0",
-      "type": "plugins"
-    },
-    {
-      "id": "org.itxtech:mcl-addon",
-      "channel": "stable",
-      "version": "1.2.1",
-      "type": "plugins",
-      "versionLocked": false
     }
+  },
+  "archiveSuffix": [
+    ".zip",
+    ".mirai2.jar",
+    ".mirai.jar",
+    "-all.jar",
+    ".jar"
   ],
-  "disabled_scripts": [
-    "updater"
-  ],
+  "disabled_modules": [],
   "proxy": "",
   "log_level": 1,
-  "script_props": {}
+  "modules_props": {}
 }
