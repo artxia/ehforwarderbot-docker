@@ -8,7 +8,7 @@ RUN apk --no-cache upgrade \
      "https://github.com/itxtech/mirai-console-loader/releases/download/${MCL_VERSION}/mcl-${MCL_VERSION#v}.zip" \
     && unzip -q -o mcl.zip -d /mcl \
     && curl -so mirai-api-http.mirai.jar -L \
-     "https://github.com/project-mirai/mirai-api-http/releases/download/${HTTP_VERSION}/mirai-api-http-${HTTP_VERSION}.mirai.jar" \
+     "https://github.com/project-mirai/mirai-api-http/releases/download/${HTTP_VERSION}/mirai-api-http-${HTTP_VERSION}.mirai2.jar" \
     && rm -rf /tmp/* /var/lib/apt/lists/* /mcl/*.zip
 
 
